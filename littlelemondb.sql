@@ -82,10 +82,13 @@ DROP TABLE IF EXISTS `menu`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `menu` (
   `MenuID` int NOT NULL AUTO_INCREMENT,
-  `DishType` varchar(255) NOT NULL,
-  `DishName` varchar(255) NOT NULL,
+  `MenuItemsID` int NOT NULL,
+  `MenuName` varchar(255) NOT NULL,
   `Price` decimal(10,0) NOT NULL,
-  PRIMARY KEY (`MenuID`)
+  `Cuisine` varchar(255) NOT NULL,
+  PRIMARY KEY (`MenuID`),
+  KEY `menuitems_id_fk_idx` (`MenuItemsID`),
+  CONSTRAINT `menuitems_id_fk` FOREIGN KEY (`MenuItemsID`) REFERENCES `menuitems` (`MenuItemsID`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -96,6 +99,31 @@ CREATE TABLE `menu` (
 LOCK TABLES `menu` WRITE;
 /*!40000 ALTER TABLE `menu` DISABLE KEYS */;
 /*!40000 ALTER TABLE `menu` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `menuitems`
+--
+
+DROP TABLE IF EXISTS `menuitems`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `menuitems` (
+  `MenuItemsID` int NOT NULL AUTO_INCREMENT,
+  `StarterName` varchar(255) NOT NULL,
+  `CourseName` varchar(255) NOT NULL,
+  `DessertName` varchar(255) NOT NULL,
+  PRIMARY KEY (`MenuItemsID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `menuitems`
+--
+
+LOCK TABLES `menuitems` WRITE;
+/*!40000 ALTER TABLE `menuitems` DISABLE KEYS */;
+/*!40000 ALTER TABLE `menuitems` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -229,4 +257,4 @@ USE `littlelemondb`;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-01-22 15:28:38
+-- Dump completed on 2024-01-22 16:12:30
