@@ -27,4 +27,15 @@ INSERT IGNORE INTO menu (MenuID, MenuItemsID, MenuName, Price, Cuisine) VALUES
 (4, 4, 'Mediterranean Platter', 18.99, 'Mediterranean'),
 (5, 5, 'Tex-Mex Fiesta', 16.99, 'Mexican');
 
-select * from menu;
+-- Inserting a receptionist
+INSERT IGNORE INTO Staff (StaffID, StaffRole, StaffName, Salary) VALUES (1, 'Receptionist', 'Alice Johnson', 30000);
+
+-- Inserting two waiters/waitresses
+INSERT IGNORE INTO Staff (StaffID, StaffRole, StaffName, Salary) VALUES (2, 'Waiter', 'Bob Smith', 25000);
+INSERT IGNORE INTO Staff (StaffID, StaffRole, StaffName, Salary) VALUES (3, 'Waitress', 'Eva Davis', 25000);
+
+-- Inserting a chef
+INSERT IGNORE INTO Staff (StaffID, StaffRole, StaffName, Salary) VALUES (4, 'Chef', 'Charlie Williams', 40000);
+
+-- Inserting a manager
+INSERT IGNORE INTO Staff (StaffID, StaffRole, StaffName, Salary) VALUES (5, 'Manager', 'Sophia Brown', 50000);
